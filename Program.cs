@@ -78,22 +78,22 @@ namespace Gym_Equipment_Management{
                 var equipment = equipmentList.Find(e => e.Id == id);
                 
                 if (equipment != null){
-                    Console.Write("Enter New Name: ");
-                    string newName = Console.ReadLine();
+                Console.Write("Enter New Name: ");
+                string newName = Console.ReadLine();
 
-                    string newStatus;
-                    while (true){
+                string newStatus;
+                while (true){
 
-                        Console.Write("Enter New Status (Working/Needs Repair): ");
-                        newStatus = Console.ReadLine();
-                        if (newStatus == "Working" || newStatus == "Needs Repair") break;
-                        Console.WriteLine("Invalid status! Please enter 'Working' or 'Needs Repair'.");
-                    }
+                    Console.Write("Enter New Status (Working/Needs Repair): ");
+                    newStatus = Console.ReadLine();
+                    if (newStatus == "Working" || newStatus == "Needs Repair") break;
+                    Console.WriteLine("Invalid status! Please enter 'Working' or 'Needs Repair'.");
+                }
 
-                    history.Add($"Updated: {equipment.Name} (ID: {equipment.Id}) -> {newName}\n Status: {newStatus}\n");
-                    equipment.Name = newName;
-                    equipment.Status = newStatus;
-                    Console.WriteLine("Equipment updated successfully!");
+                history.Add($"Updated: {equipment.Name} (ID: {equipment.Id}) -> {newName}\n Status: {newStatus}\n");
+                equipment.Name = newName;
+                equipment.Status = newStatus;
+                Console.WriteLine("Equipment updated successfully!");
                
                 }else Console.WriteLine("Equipment not found!");
                 } else Console.WriteLine("Invalid ID!");
@@ -104,14 +104,14 @@ namespace Gym_Equipment_Management{
             Console.Write("\nEnter Equipment ID to Delete: ");
             if (int.TryParse(Console.ReadLine(), out int id)){
 
-                var equipment = equipmentList.Find(e => e.Id == id);
-                if (equipment != null)
-                {
-                    equipmentList.Remove(equipment);
-                    history.Add($"Deleted: {equipment.Name} (ID: {equipment.Id})\n");
-                    Console.WriteLine("Equipment deleted successfully!");
+            var equipment = equipmentList.Find(e => e.Id == id);
+            if (equipment != null)
+            {
+                equipmentList.Remove(equipment);
+                history.Add($"Deleted: {equipment.Name} (ID: {equipment.Id})\n");
+                Console.WriteLine("Equipment deleted successfully!");
                 
-                }else Console.WriteLine("Equipment not found!");
+            }else Console.WriteLine("Equipment not found!");
            
             }else Console.WriteLine("Invalid ID!");
         }
