@@ -19,6 +19,7 @@ namespace GymEquipmentManagement{
             Console.Write("\nSelect an option: ");
 
         switch (Console.ReadLine()) { 
+
             case "1": AddEquipment();
                       break;
             case "2": UpdateEquipment();
@@ -75,10 +76,10 @@ namespace GymEquipmentManagement{
                 Console.WriteLine("Invalid quantity. Enter Valid Number.");
             return;
 
-            if (gemProcess.UpdateEquipment(id, newName, newStatus, newQuantity))
+            if (gemProcess.UpdateEquipment(id, newName, newStatus, newQuantity)) { 
                 Console.WriteLine("Equipment updated successfully!");
-            Console.WriteLine("ID: {id}\n Name: {newName} \nStatus: {newStatus} \nQuantity: {newQuantity}");
-            else
+                Console.WriteLine("ID: {id}\n Name: {newName} \nStatus: {newStatus} \nQuantity: {newQuantity}");
+          }else
                 Console.WriteLine("Equipment not found!");
         }
 
