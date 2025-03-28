@@ -7,6 +7,7 @@ namespace GymEquipmentManagement{
         static GEMProcess gemProcess = new GEMProcess();
 
     static void Main(){
+
         while (true) {
             Console.Clear();
             Console.WriteLine("===== GYM EQUIPMENT MANAGEMENT =====");
@@ -56,12 +57,12 @@ namespace GymEquipmentManagement{
             Console.WriteLine("Equipment added successfully!");
         }
 
-    static void UpdateEquipment(){
+        static void UpdateEquipment() {
 
             Console.Clear();
             Console.Write("Enter Equipment ID: ");
-            if (!int.TryParse(Console.ReadLine(), out int id)) 
-            return;
+            if (!int.TryParse(Console.ReadLine(), out int id))
+                return;
 
             Console.Write("Enter New Name: ");
             string newName = Console.ReadLine()?.Trim();
@@ -70,11 +71,13 @@ namespace GymEquipmentManagement{
             string newStatus = Console.ReadLine()?.Trim();
 
             Console.Write("Enter New Quantity: ");
-            if (!int.TryParse(Console.ReadLine(), out int newQuantity) || newQuantity <= 0) 
+            if (!int.TryParse(Console.ReadLine(), out int newQuantity) || newQuantity <= 0)
+                Console.WriteLine("Invalid quantity. Enter Valid Number.");
             return;
 
             if (gemProcess.UpdateEquipment(id, newName, newStatus, newQuantity))
                 Console.WriteLine("Equipment updated successfully!");
+            Console.WriteLine("ID: {id}\n Name: {newName} \nStatus: {newStatus} \nQuantity: {newQuantity}");
             else
                 Console.WriteLine("Equipment not found!");
         }
